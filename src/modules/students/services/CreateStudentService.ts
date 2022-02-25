@@ -1,14 +1,8 @@
 import AppError from '@shared/errors/AppError';
 import Student, { IStudent } from '../models/student';
 
-interface IRequest {
-  name: string;
-  cpf: string;
-  email: string;
-}
-
 class CreateStudentService {
-  public async execute({ name, cpf, email }: IRequest): Promise<IStudent> {
+  public async execute({ name, cpf, email }: IStudent): Promise<IStudent> {
     const emailExists = await Student.findOne({ email: email });
 
     if (emailExists) {

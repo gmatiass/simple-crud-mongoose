@@ -1,11 +1,12 @@
 import { Schema, model, Document } from 'mongoose';
 
-export interface ICourse extends Document {
+export interface ICourse {
   name: string;
   description: string;
   shift: string;
   places: number;
 }
+export interface ICourseDocument extends ICourse, Document {}
 
 const CourseSchema = new Schema(
   {
@@ -15,7 +16,7 @@ const CourseSchema = new Schema(
       type: String,
       enum: {
         values: ['morning', 'afternoon', 'night'],
-        message: 'The shift is not supported.',
+        message: 'The shift is not supported.', //TODO:Analisar como essa verificação pode ser retornada.
       },
       required: true,
     },
@@ -33,4 +34,4 @@ const CourseSchema = new Schema(
   },
 );
 
-export default model<ICourse>('Course', CourseSchema);
+export default model<ICourseDocument>('Course', CourseSchema);

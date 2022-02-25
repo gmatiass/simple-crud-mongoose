@@ -1,20 +1,11 @@
 import AppError from '@shared/errors/AppError';
-import Student from '../models/student';
-
-interface IRequest {
-  student_id: string;
-  name: string;
-  cpf: string;
-  email: string;
-}
+import Student, { IStudent } from '../models/student';
 
 class UpdateStudentService {
-  public async execute({
-    student_id,
-    name,
-    cpf,
-    email,
-  }: IRequest): Promise<void> {
+  public async execute(
+    student_id: string,
+    { name, cpf, email }: IStudent,
+  ): Promise<void> {
     const studentExists = await Student.findById(student_id);
 
     if (!studentExists) {

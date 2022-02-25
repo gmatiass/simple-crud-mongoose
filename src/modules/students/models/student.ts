@@ -1,10 +1,12 @@
 import { Schema, model, Document } from 'mongoose';
 
-export interface IStudent extends Document {
+export interface IStudent {
   name: string;
   cpf: string;
   email: string;
 }
+
+export interface IStudentDocument extends IStudent, Document {}
 
 const StudentSchema = new Schema(
   {
@@ -24,4 +26,4 @@ const StudentSchema = new Schema(
   },
 );
 
-export default model<IStudent>('Student', StudentSchema);
+export default model<IStudentDocument>('Student', StudentSchema);

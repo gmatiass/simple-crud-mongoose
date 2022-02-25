@@ -1,13 +1,9 @@
 import AppError from '@shared/errors/AppError';
 import Student from '../models/student';
 
-interface IRequest {
-  student_id: string;
-}
-
 class DeleteStudentService {
-  public async execute({ student_id }: IRequest): Promise<void> {
-    const student = Student.findById(student_id);
+  public async execute(student_id: string): Promise<void> {
+    const student = await Student.findById(student_id);
 
     if (!student) {
       throw new AppError('Student not found.');
