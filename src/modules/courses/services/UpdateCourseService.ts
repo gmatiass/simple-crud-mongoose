@@ -18,11 +18,11 @@ class UpdateCourseService {
     course.shift = shift;
     course.places = places;
 
-    await course.save().catch(e => {
+    await course.save().catch(err => {
       throw new AppError(
         'Validation failed.',
         400,
-        validatorHandler(e.message),
+        validatorHandler(err.message),
       );
     });
   }

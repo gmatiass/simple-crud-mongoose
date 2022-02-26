@@ -5,7 +5,7 @@ import ListCoursesService from '../services/ListCoursesService';
 import ShowCourseService from '../services/ShowCourseService';
 import UpdateCourseService from '../services/UpdateCourseService';
 
-class CourseController {
+export default class CourseController {
   public async index(request: Request, response: Response): Promise<Response> {
     const listCourses = new ListCoursesService();
 
@@ -57,5 +57,3 @@ class CourseController {
     return response.send();
   }
 }
-
-export default CourseController;

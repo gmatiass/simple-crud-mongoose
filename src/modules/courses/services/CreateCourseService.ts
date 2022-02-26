@@ -1,4 +1,5 @@
 import AppError from '@shared/errors/AppError';
+import { validatorHandler } from '@shared/utils/validatorHandler';
 import Course, { ICourse } from '../models/course';
 
 class CreateCourseService {
@@ -14,7 +15,11 @@ class CreateCourseService {
       shift,
       places,
     }).catch(err => {
-      throw new AppError(err.message);
+      throw new AppError(
+        'Validation failed.',
+        400,
+        validatorHandler(err.message),
+      );
     });
 
     return course;

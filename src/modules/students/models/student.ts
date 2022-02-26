@@ -6,7 +6,7 @@ export interface IStudent {
   email: string;
 }
 
-export interface IStudentDocument extends IStudent, Document {}
+interface IStudentDocument extends IStudent, Document {}
 
 const StudentSchema = new Schema(
   {
@@ -21,6 +21,8 @@ const StudentSchema = new Schema(
         ret.id = ret._id;
         delete ret._id;
         delete ret.__v;
+        delete ret.createdAt;
+        delete ret.updatedAt;
       },
     },
   },

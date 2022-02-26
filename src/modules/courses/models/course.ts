@@ -6,7 +6,8 @@ export interface ICourse {
   shift: string;
   places: number;
 }
-export interface ICourseDocument extends ICourse, Document {}
+
+interface ICourseDocument extends ICourse, Document {}
 
 const CourseSchema = new Schema(
   {
@@ -29,6 +30,8 @@ const CourseSchema = new Schema(
         ret.id = ret._id;
         delete ret._id;
         delete ret.__v;
+        delete ret.createdAt;
+        delete ret.updatedAt;
       },
     },
   },
