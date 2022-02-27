@@ -42,9 +42,12 @@ export default class RegistrationController {
 
     const updateRegistration = new UpdateRegistrationService();
 
-    await updateRegistration.execute(registration_id, course_id);
+    const registrationUpdated = await updateRegistration.execute(
+      registration_id,
+      course_id,
+    );
 
-    return response.send();
+    return response.json(registrationUpdated);
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {

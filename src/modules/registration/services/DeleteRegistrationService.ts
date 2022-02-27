@@ -9,7 +9,8 @@ class DeleteRegistrationService {
       throw new AppError('Registration not found.');
     }
 
-    await Registration.findByIdAndDelete({ _id: registration_id });
+    // await Registration.findByIdAndDelete({ _id: registration_id });
+    await registration.delete();
   }
 }
 

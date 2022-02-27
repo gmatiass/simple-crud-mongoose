@@ -43,9 +43,14 @@ export default class CourseController {
     const { name, description, shift, places } = request.body;
 
     const updateCourse = new UpdateCourseService();
-    await updateCourse.execute(course_id, { name, description, shift, places });
+    const courseUpdated = await updateCourse.execute(course_id, {
+      name,
+      description,
+      shift,
+      places,
+    });
 
-    return response.send();
+    return response.json(courseUpdated);
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {

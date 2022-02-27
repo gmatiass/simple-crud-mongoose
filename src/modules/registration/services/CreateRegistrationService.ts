@@ -2,6 +2,7 @@ import Student from '@modules/students/models/student';
 import Course from '@modules/courses/models/course';
 import AppError from '@shared/errors/AppError';
 import Registration, { IRegistration } from '../models/registration';
+import { validatorHandler } from '@shared/utils/validatorHandler';
 
 class CreateRegistrationService {
   public async execute({
@@ -22,14 +23,14 @@ class CreateRegistrationService {
 
     const studentRegistrations = await Registration.find({
       student_id,
-    }).populate(['student', 'course']);
+    }).populate(['student_id', 'course_id']);
 
     if (studentRegistrations.length == 3) {
       throw new AppError('The student has no available shift.');
     }
 
     studentRegistrations.forEach(reg => {
-      if (reg.get('course').$get('shift') === courseExists.shift) {
+      if (reg.get('course_id').get('shift') === courseExists.shift) {
         throw new AppError('The student does not have this shift available.');
       }
     });
@@ -40,9 +41,20 @@ class CreateRegistrationService {
       throw new AppError('The course has no place available.');
     }
 
-    const registration = await Registration.create({ student_id, course_id });
+    const registration = await Registration.create({
+      student_id,
+      course_id,
+    }).catch(err => {
+      throw new AppError(
+        'Validation failed.',
+        400,
+        validatorHandler(err.message),
+      );
+    });
 
-    return registration.populate(['student', 'course']);
+    await registration.populate(['student_id', 'course_id']);
+
+    return registration;
   }
 }
 

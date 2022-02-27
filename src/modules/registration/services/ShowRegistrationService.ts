@@ -3,7 +3,10 @@ import Registration, { IRegistration } from '../models/registration';
 
 class ShowRegistrationService {
   public async execute(registration_id: string): Promise<IRegistration> {
-    const registration = await Registration.findById(registration_id);
+    const registration = await Registration.findById(registration_id).populate([
+      'student_id',
+      'course_id',
+    ]);
 
     if (!registration) {
       throw new AppError('Registration not found.');

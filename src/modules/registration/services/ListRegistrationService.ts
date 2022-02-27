@@ -2,9 +2,10 @@ import Registration, { IRegistration } from '../models/registration';
 
 class ListRegistrationService {
   public async execute(): Promise<IRegistration[]> {
-    const listRegistrations = await Registration.find()
-      .populate('student')
-      .populate('course');
+    const listRegistrations = await Registration.find().populate([
+      'student_id',
+      'course_id',
+    ]);
 
     return listRegistrations;
   }

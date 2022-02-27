@@ -6,7 +6,7 @@ class UpdateCourseService {
   public async execute(
     course_id: string,
     { name, description, shift, places }: ICourse,
-  ): Promise<void> {
+  ): Promise<ICourse> {
     const course = await Course.findById(course_id);
 
     if (!course) {
@@ -25,6 +25,8 @@ class UpdateCourseService {
         validatorHandler(err.message),
       );
     });
+
+    return course;
   }
 }
 

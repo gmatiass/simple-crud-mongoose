@@ -39,9 +39,13 @@ export default class StudentController {
 
     const updateStudent = new UpdateStudentService();
 
-    await updateStudent.execute(student_id, { name, cpf, email });
+    const studentUpdated = await updateStudent.execute(student_id, {
+      name,
+      cpf,
+      email,
+    });
 
-    return response.send();
+    return response.json(studentUpdated);
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {

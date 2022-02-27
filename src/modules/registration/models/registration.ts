@@ -12,10 +12,12 @@ const RegistrationSchema = new Schema(
     student_id: {
       type: Schema.Types.ObjectId,
       ref: 'Student',
+      required: true,
     },
     course_id: {
       type: Schema.Types.ObjectId,
       ref: 'Course',
+      required: true,
     },
   },
   {
@@ -25,31 +27,9 @@ const RegistrationSchema = new Schema(
         ret.id = ret._id;
         delete ret._id;
         delete ret.__v;
-        delete ret.student_id;
-        delete ret.course_id;
-        delete ret.createdAt;
-        delete ret.updatedAt;
       },
-      virtuals: true,
-    },
-    toObject: {
-      virtuals: true,
     },
   },
 );
-
-RegistrationSchema.virtual('student', {
-  ref: 'Student',
-  localField: 'student_id',
-  foreignField: '_id',
-  justOne: true,
-});
-
-RegistrationSchema.virtual('course', {
-  ref: 'Course',
-  localField: 'course_id',
-  foreignField: '_id',
-  justOne: true,
-});
 
 export default model<IRegistrationDocument>('Registration', RegistrationSchema);

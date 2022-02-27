@@ -9,7 +9,8 @@ class DeleteStudentService {
       throw new AppError('Student not found.');
     }
 
-    await Student.findByIdAndDelete({ _id: student_id });
+    // await Student.findByIdAndDelete({ _id: student_id });
+    await student.delete();
   }
 }
 

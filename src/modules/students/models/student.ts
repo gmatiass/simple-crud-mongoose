@@ -21,8 +21,6 @@ const StudentSchema = new Schema(
         ret.id = ret._id;
         delete ret._id;
         delete ret.__v;
-        delete ret.createdAt;
-        delete ret.updatedAt;
       },
     },
   },

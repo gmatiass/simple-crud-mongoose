@@ -1,4 +1,5 @@
 import AppError from '@shared/errors/AppError';
+import { validatorHandler } from '@shared/utils/validatorHandler';
 import Student, { IStudent } from '../models/student';
 
 class CreateStudentService {
@@ -15,7 +16,13 @@ class CreateStudentService {
       throw new AppError('CPF already used.');
     }
 
-    const student = await Student.create({ name, cpf, email });
+    const student = await Student.create({ name, cpf, email }).catch(err => {
+      throw new AppError(
+        'Validation failed.',
+        400,
+        validatorHandler(err.message),
+      );
+    });
 
     return student;
   }
