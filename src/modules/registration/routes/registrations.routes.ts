@@ -1,10 +1,11 @@
+import isAuthenticated from '@shared/http/middlewares/isAuthenticated';
 import { Router } from 'express';
 import RegistrationController from '../controllers/RegistrationController';
 
 const registrationsRouter = Router();
 const registrationController = new RegistrationController();
 
-registrationsRouter.get('/', registrationController.index);
+registrationsRouter.get('/', isAuthenticated, registrationController.index);
 registrationsRouter.get('/:registration_id', registrationController.show);
 registrationsRouter.post('/', registrationController.create);
 registrationsRouter.put('/:registration_id', registrationController.update);
