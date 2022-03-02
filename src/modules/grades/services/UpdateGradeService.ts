@@ -13,7 +13,7 @@ class UpdateGradeService {
       throw new AppError('Grade not found.');
     }
 
-    gradeUpdate.registration_id = registration_id;
+    //gradeUpdate.registration_id = registration_id;
     gradeUpdate.grade = grade;
     await gradeUpdate.save().catch(err => {
       throw new AppError(

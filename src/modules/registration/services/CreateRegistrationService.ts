@@ -37,7 +37,7 @@ class CreateRegistrationService {
 
     const courseRegistrations = await Registration.find({ course_id });
 
-    if (courseRegistrations.length === courseExists.places) {
+    if (courseRegistrations.length == courseExists.places) {
       throw new AppError('The course has no place available.');
     }
 

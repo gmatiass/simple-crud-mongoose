@@ -17,7 +17,7 @@ const CourseSchema = new Schema(
       type: String,
       enum: {
         values: ['morning', 'afternoon', 'night'],
-        message: 'The shift is not supported.', //TODO:Analisar como essa verificação pode ser retornada.
+        message: 'The shift is not supported.',
       },
       required: true,
     },

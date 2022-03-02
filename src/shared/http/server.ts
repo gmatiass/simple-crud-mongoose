@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
@@ -7,7 +8,10 @@ import dbConfig from '@config/db';
 import mongoose from 'mongoose';
 
 const app = express();
-mongoose.connect(dbConfig.mongoDB.URL);
+
+if (dbConfig.mongoDB.URL) {
+  mongoose.connect(dbConfig.mongoDB.URL);
+}
 
 app.use(cors());
 app.use(express.json());

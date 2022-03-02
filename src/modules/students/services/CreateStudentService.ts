@@ -4,7 +4,8 @@ import Student, { IStudent } from '../models/student';
 
 class CreateStudentService {
   public async execute({ name, cpf, email }: IStudent): Promise<IStudent> {
-    const emailExists = await Student.findOne({ email: email });
+    const emailLower = email.toLowerCase();
+    const emailExists = await Student.findOne({ email: emailLower });
 
     if (emailExists) {
       throw new AppError('Email adress already used.');
@@ -16,13 +17,15 @@ class CreateStudentService {
       throw new AppError('CPF already used.');
     }
 
-    const student = await Student.create({ name, cpf, email }).catch(err => {
-      throw new AppError(
-        'Validation failed.',
-        400,
-        validatorHandler(err.message),
-      );
-    });
+    const student = await Student.create({ name, cpf, emailLower }).catch(
+      err => {
+        throw new AppError(
+          'Validation failed.',
+          400,
+          validatorHandler(err.message),
+        );
+      },
+    );
 
     return student;
   }
