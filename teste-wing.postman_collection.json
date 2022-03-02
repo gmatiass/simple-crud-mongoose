@@ -1,0 +1,538 @@
+{
+	"info": {
+		"_postman_id": "81dbf261-51c8-4044-870c-cab8b57123a2",
+		"name": "teste-wing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Student2\",\n    \"cpf\": \"67868456456456\",\n    \"email\": \"STuDent1@teste.com\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Student1\",\n    \"cpf\": \"76546573666\",\n    \"email\": \"student1@teste.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/621ebb6be00cedf336b5f905",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"621ebb6be00cedf336b5f905"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/students/621ebd2f8856af84eb7c9dd4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"621ebd2f8856af84eb7c9dd4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/students",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/students/621ebb6be00cedf336b5f905",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"621ebb6be00cedf336b5f905"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Create Course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"curso de maça\",\n    \"description\": \"Um curso maneirao pra você aprender a comer maça\",\n    \"shift\": \"afternon\",\n    \"places\": \"10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/courses/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Course",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"curso de pera\",\n    \"description\": \"Um curso maneirao pra você aprender a comer pera\",\n    \"shift\": \"night\",\n    \"places\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/courses/6217adcf5ddfe73d75ac202d",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses",
+								"6217adcf5ddfe73d75ac202d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/courses/621ec290d4e12703b4128ce0",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses",
+								"621ec290d4e12703b4128ce0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/courses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Course",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registrations",
+			"item": [
+				{
+					"name": "Create Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"student_id\": \"6216d1beb440d66367fedb42\",\n    \"course_id\": \"6216f7fe40d2c8028c165c73\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/registrations/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"registrations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Registration",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"course_id\": \"6217adcf5ddfe73d75ac202d\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/registrations/6219b0da82eb8b97cc161b25",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"registrations",
+								"6219b0da82eb8b97cc161b25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Registration",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/registrations/6219af1af38f9e2cb40c305d",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"registrations",
+								"6219af1af38f9e2cb40c305d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Registrations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"course_id\": \"6217adcf5ddfe73d75ac202d\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/registrations/6219b0da82eb8b97cc161b25",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"registrations",
+								"6219b0da82eb8b97cc161b25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Registration",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDYxODMxODQsImV4cCI6MTY0NjIxOTE4NCwic3ViIjoiNjIxZWJiNmJlMDBjZWRmMzM2YjVmOTA1In0.1WwgHMOkT1FTOLusKez4MH6n4iXjewKa_LfXX2r7tIY",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Grades",
+			"item": [
+				{
+					"name": "Create Grade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"registration_id\": \"62199b3e3320ef864b87800c\",\n    \"grade\": \"90\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/grades",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"grades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Grade",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"grade\": \"50\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/grades/621bd9c0805371b710a71a53",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"grades",
+								"621bd9c0805371b710a71a53"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Grade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/grades/621bd9c0805371b710a71a53",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"grades",
+								"621bd9c0805371b710a71a53"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Grades",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Show Grade",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDYxODMxODQsImV4cCI6MTY0NjIxOTE4NCwic3ViIjoiNjIxZWJiNmJlMDBjZWRmMzM2YjVmOTA1In0.1WwgHMOkT1FTOLusKez4MH6n4iXjewKa_LfXX2r7tIY",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "Create Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/sessions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:3333",
+			"type": "string"
+		}
+	]
+}
